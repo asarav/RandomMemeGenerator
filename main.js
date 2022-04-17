@@ -8,9 +8,9 @@ function httpGet(url)
       }).then(function(data) {
         console.log(data);
         var image = document.getElementById("image");
-        var preview = data?.preview
+        var preview = data?.preview[data?.preview.length - 1]
         //console.log(preview[preview.length - 1])
-        image.src = preview[preview.length - 1]
+        image.src = data?.url
       }).catch(function() {
         console.log("Booo");
       });
