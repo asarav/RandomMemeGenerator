@@ -7,7 +7,15 @@ function httpGet(url)
         return response.json();
       }).then(function(data) {
         console.log(data);
+        var image = document.getElementById("image");
+        var preview = data?.preview
+        //console.log(preview[preview.length - 1])
+        image.src = preview[preview.length - 1]
       }).catch(function() {
         console.log("Booo");
       });
+}
+
+function getRandomMeme() {
+    httpGet("https://meme-api.herokuapp.com/gimme")
 }
